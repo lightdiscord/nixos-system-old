@@ -63,6 +63,10 @@ with import ./accounts.nix;
     printing.enable = true;
     xserver = import ./services/xserver.nix { inherit (pkgs) i3-gaps; };
     mopidy = import ./services/mopidy.nix { inherit pkgs; };
+    redshift = {
+      enable = true;
+      provider = "geoclue2";
+    };
   };
 
   hardware = {
