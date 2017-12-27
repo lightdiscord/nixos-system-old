@@ -13,6 +13,7 @@ with import ./accounts.nix;
     # ./services/mopidy.nix
     ./features/desktop.nix
     ./features/networking.nix
+    ./features/drive-datas.nix
     ./containers
   ];
 
@@ -51,12 +52,5 @@ with import ./accounts.nix;
       support32Bit = true;
       package = pkgs.pulseaudioFull;
     };
-  };
-
-  fileSystems."/datas" = {
-    device = "/dev/sda1";
-    fsType = "ext4";
-    label = "Datas";
-    options = [ "nofail" ];
   };
 }
