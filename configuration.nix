@@ -12,6 +12,7 @@ with import ./accounts.nix;
     ./services/redshift.nix
     # ./services/mopidy.nix
     ./features/desktop.nix
+    ./features/networking.nix
     ./containers
   ];
 
@@ -28,13 +29,7 @@ with import ./accounts.nix;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking = {
-    networkmanager.enable = true;
-    hostName = "LightDiscord";
-    extraHosts = ''
-      127.0.0.2 gitea.local
-    '';
-  };
+  networking.hostName = "LightDiscord";
 
   time.timeZone = "Europe/Paris";
 
