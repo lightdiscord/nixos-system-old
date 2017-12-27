@@ -12,6 +12,7 @@ with import ./accounts.nix;
     ./services/redshift.nix
     # ./services/mopidy.nix
     ./features/desktop.nix
+    ./containers
   ];
 
   system = {
@@ -63,6 +64,4 @@ with import ./accounts.nix;
     label = "Datas";
     options = [ "nofail" ];
   };
-
-  containers = import ./containers.nix;
 }
