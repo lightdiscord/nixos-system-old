@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 {
+  networking.hosts."127.0.0.2" = [ "gitea.local" ];
   containers.gitea = {
     autoStart = true;
     privateNetwork = false;
