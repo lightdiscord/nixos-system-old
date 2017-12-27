@@ -6,11 +6,11 @@ with import ./accounts.nix;
   imports =
   [
     ./hardware-configuration.nix
-    ./services/xserver.nix
     ./services/udev.nix
     ./services/printing.nix
     ./services/redshift.nix
     # ./services/mopidy.nix
+    ./features/desktop.nix
   ];
 
   system = {
