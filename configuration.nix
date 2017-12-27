@@ -6,7 +6,8 @@ with import ./accounts.nix;
   imports =
   [
     ./hardware-configuration.nix
-    ./services/udev.nix
+
+    ./config
     ./services/printing.nix
     ./services/redshift.nix
     # ./services/mopidy.nix
@@ -34,12 +35,6 @@ with import ./accounts.nix;
     '';
   };
 
-  i18n = {
-    consoleFont = "Lat2-Terminus16";
-    consoleKeyMap = "fr";
-    defaultLocale = "en_US.UTF-8";
-  };
-
   time.timeZone = "Europe/Paris";
 
   environment.systemPackages = with pkgs; [
@@ -51,23 +46,6 @@ with import ./accounts.nix;
     yubikey-personalization
     xorg.xf86inputlibinput
   ];
-
-  environment.variables.DISPLAY = ":0";
-
-  fonts = {
-    enableDefaultFonts = true;
-    enableGhostscriptFonts = true;
-    fonts = with pkgs; [
-      dejavu_fonts
-      font-awesome-ttf
-      emojione
-      opensans-ttf
-      material-icons
-      nerdfonts
-      powerline-fonts
-      fira-code
-    ];
-  };
 
   hardware = {
     bluetooth.enable = false;
@@ -85,12 +63,6 @@ with import ./accounts.nix;
     label = "Datas";
     options = [ "nofail" ];
   };
-
-  users.extraUsers.arnaud = import ./users/arnaud.nix { inherit (pkgs) fish; };
-
-  programs.fish.enable = true;
-
-  security.pam.enableU2F = true;
 
   containers = import ./containers.nix;
 }

@@ -11,4 +11,6 @@
       { output = "DVI-I-1"; primary = true; }
     ];
   };
+
+  environment.variables.DISPLAY = ":0";
 }
