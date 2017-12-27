@@ -6,6 +6,11 @@ with import ./accounts.nix;
   imports =
   [
     ./hardware-configuration.nix
+    ./services/xserver.nix
+    ./services/udev.nix
+    ./services/printing.nix
+    ./services/redshift.nix
+    # ./services/mopidy.nix
   ];
 
   system = {
@@ -62,21 +67,6 @@ with import ./accounts.nix;
       powerline-fonts
       fira-code
     ];
-  };
-
-  services = {
-    printing.enable = true;
-    xserver = import ./services/xserver.nix { inherit (pkgs) i3-gaps; };
-    # mopidy = import ./services/mopidy.nix { inherit pkgs; };
-    udev.packages = with pkgs; [
-      libu2f-host
-      yubikey-personalization
-      libinput
-    ];
-    redshift = {
-      enable = true;
-      provider = "geoclue2";
-    };
   };
 
   hardware = {
