@@ -42,6 +42,9 @@ with import ./accounts.nix;
     fish
     gnupg
     opensc
+    libu2f-host
+    yubikey-personalization
+    xorg.xf86inputlibinput
   ];
 
   environment.variables.DISPLAY = ":0";
@@ -56,13 +59,20 @@ with import ./accounts.nix;
       opensans-ttf
       material-icons
       nerdfonts
+      powerline-fonts
+      fira-code
     ];
   };
 
   services = {
     printing.enable = true;
     xserver = import ./services/xserver.nix { inherit (pkgs) i3-gaps; };
-    mopidy = import ./services/mopidy.nix { inherit pkgs; };
+    # mopidy = import ./services/mopidy.nix { inherit pkgs; };
+    udev.packages = with pkgs; [
+      libu2f-host
+      yubikey-personalization
+      libinput
+    ];
     redshift = {
       enable = true;
       provider = "geoclue2";
@@ -89,6 +99,8 @@ with import ./accounts.nix;
   users.extraUsers.arnaud = import ./users/arnaud.nix { inherit (pkgs) fish; };
 
   programs.fish.enable = true;
+
+  security.pam.enableU2F = true;
 
   containers = import ./containers.nix;
 }

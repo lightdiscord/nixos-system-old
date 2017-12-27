@@ -13,6 +13,7 @@
 
   config = { config, pkgs, ... }:
   {
+    networking.firewall.allowedTCPPorts = [ 80 22 443 ];
     services.gitea = {
       enable = true;
       user = "root";
@@ -21,6 +22,10 @@
       rootUrl = "http://gitea.local";
       httpAddress = "127.0.0.2";
       httpPort = 80;
+      extraConfig = ''
+        [server]
+        START_SSH_SERVER = true
+      '';
     };
   };
 }
