@@ -14,14 +14,14 @@ with import ./accounts.nix;
     ./features/desktop.nix
     ./features/networking.nix
     ./features/drive-datas.nix
-    ./containers
+    #./containers
   ];
 
   system = {
     stateVersion = "17.09";
     autoUpgrade = {
       enable = true;
-      channel = "https://nixos.org/channels/nixos-unstable";
+      channel = "https://nixos.org/channels/nixpkgs-unstable";
     };
   };
 
