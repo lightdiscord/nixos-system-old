@@ -14,7 +14,7 @@ with import ./accounts.nix;
     ./features/desktop.nix
     ./features/networking.nix
     ./features/drive-datas.nix
-    #./containers
+    ./containers
   ];
 
   system = {
