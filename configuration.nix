@@ -14,6 +14,7 @@ with import ./accounts.nix;
     ./features/desktop.nix
     ./features/networking.nix
     ./features/drive-datas.nix
+    ./features/openvpn.nix
     ./containers
   ];
 
@@ -29,6 +30,7 @@ with import ./accounts.nix;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "LightDiscord";
 
@@ -39,6 +41,7 @@ with import ./accounts.nix;
     fish
     gnupg
     opensc
+    pcsctools
     libu2f-host
     yubikey-personalization
     xorg.xf86inputlibinput
