@@ -5,6 +5,7 @@
     ./fonts.nix
     ./udev.nix
     ./users.nix
+    ../features/databases/mongodb.nix
   ];
 
   i18n = {

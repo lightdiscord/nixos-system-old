@@ -39,6 +39,7 @@ in {
         unrar
         editorconfig-core-c
         tree
+        emacs
       ] ++ pkgs.lib.optionals config.services.xserver.enable [
         discord
         tdesktop
@@ -68,6 +69,8 @@ in {
         #steam
         feh
         spotify
+        robomongo
+        vscode
       ]);
     };
   };
@@ -86,7 +89,7 @@ in {
       };
       extraConfig = ''
         [core]
-        editor=neovim
+        editor=nvim
       '';
     };
 
@@ -99,6 +102,26 @@ in {
       enable = true;
       defaultCacheTtl = 3600;
       enableSshSupport = true;
+    };
+
+    systemd.user.services.emacsd = {
+      Unit = {
+        Description = "Emacs: the extensible, self-documenting text editor";
+      };
+
+      Service = {
+        Type = "forking";
+        ExecStart = "${pkgs.emacs}/bin/emacs --daemon";
+        ExecReload = "${pkgs.emacs}/bin/emacsclient --eval \"(kill-emacs)\"";
+        Environment = ''
+          PATH=${pkgs.xclip}/bin:${pkgs.coreutils}/bin
+        '';
+        Restart = "always";
+      };
+
+      Install = {
+        WantedBy = ["default.target"];
+      };
     };
 
     gtk = {
@@ -114,5 +137,12 @@ in {
     };
   };
 
-  programs.fish.enable = true;
+  programs.fish = {
+    enable = true;
+    shellAliases = {
+      vim = "nvim";
+      ec = "emacsclient -t";
+      ecw = "emacsclient -c -a emacs";
+    };
+  };
 }

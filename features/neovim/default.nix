@@ -5,55 +5,37 @@ let
 in {
   packages.myVimPackage = with pkgs.vimPlugins // plugins; {
     start = [
-      ## File tree
       #nerdtree
       #vim-nerdtree-tabs
       #vim-nerdtree-git-plugin
       #vim-devicons
       #vim-nerdtree-syntax-highlight
-
-      ## Utils
       #vim-easymotion
       #vim-mru
-      #vim-editorconfig
-      #vim-emmet
-      vim-discord
-      vim-indentline
+      #editorconfig
+      #emmet
+      #vim-indentline
       #vim-ale
 
-      ## Git
-      #vim-fugitive
+      tools.fugitive
 
-      ## Airline
-      #vim-airline
-      #vim-airline-themes
+      fun.discord
 
-      ## Themes
-      #colibri-vim
-      gruvbox
-      vim-one
-      #vim-jellybeans
-      #vim-tender
-      #vim-colors-lucid
+      themes.colors-lucid
 
-      ## Languages
-      #vim-javascript
-      #vim-vue
-      #rust-vim
-      vim-nix
-      #vim-graphql
-      vim-toml
-      #vim-fish
-      spacevim
+      langs.nix
+      langs.rust
+      langs.toml
     ];
     opt = [];
   };
 
   customRC = ''
-    source /home/arnaud/.config/nvim/init.vim
-    let g:chromatica#libclang_path='${pkgs.llvmPackages.clang.cc}/lib/libclang.so'
-    let g:spacevim_colorscheme = 'one'
-    let g:spacevim_colorscheme_bg = 'dark'
-    colorscheme one
+    if (has("termguicolors"))
+      set termguicolors
+    endif
+
+    set background=dark
+    colorscheme lucid
   '';
 }

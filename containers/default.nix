@@ -2,6 +2,6 @@
 
 {
   imports = [
-    ../containers/gitea.nix
+    #../containers/gitea.nix
   ];
 }

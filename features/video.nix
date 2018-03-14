@@ -4,11 +4,11 @@
   services.xserver = {
     videoDrivers = [
       "modesetting"
-      "nouveau"
+      "nvidia"
     ];
     xrandrHeads = [
-      "HDMI-1"
-      { output = "DVI-I-1"; primary = true; }
+      { output = "HDMI-0"; primary = true; }
+      "DVI-I-0"
     ];
   };
 
