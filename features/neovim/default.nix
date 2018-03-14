@@ -10,14 +10,14 @@ in {
       #vim-devicons
       #vim-nerdtree-syntax-highlight
       #vim-mru
-      #editorconfig
-      #emmet
       #vim-indentline
-      #vim-ale
 
       tools.fugitive
       tools.nerdtree
       tools.easymotion
+      tools.emmet
+      tools.ale
+      tools.editorconfig
 
       fun.discord
 
@@ -39,6 +39,6 @@ in {
     colorscheme lucid
 
     nmap <silent> <F3> :NERDTreeToggle<CR>
-    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDtree.isTabTree()) | q | endif
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
   '';
 }

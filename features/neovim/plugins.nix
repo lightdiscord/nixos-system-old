@@ -75,5 +75,26 @@ in {
       rev = "342549e7a1e5b07a030803e0e4b6f0415aa51275";
       sha256 = "1glv4s95v8xxj47n0jzjxd0pxphnnpgzyd384d2bh0ql1xgf320v";
     };
+
+    emmet = build {
+      name = "emmet-vim";
+      owner = "mattn";
+      rev = "350f0ba10b9ee65837fc5b04a993b14a7a10e5ac";
+      sha256 = "0439a3jd8v45nw6sl1gmhcz6w5ca5v2db0slahxg504zjs5jpivw";
+    };
+
+    ale = build {
+      name = "ale";
+      owner = "w0rp";
+      rev = "92e6e4d1ba482a4d2d89d850f660c67ccf8a28eb";
+      sha256 = "11zxh6n8qwm6rhx2i5fxj92r19yjfc5jpgby7kj3wwd9qgkzjxkk";
+    };
+
+    editorconfig = build {
+      name = "editorconfig-vim";
+      owner = "editorconfig";
+      rev = "0abb0634a8bf3c760a283e9e7475594b83869a46";
+      sha256 = "1wazl37ivn9nhsy296g1ncvvwc78930lbp8arhwavr52mzpfji21";
+    };
   };
 }
