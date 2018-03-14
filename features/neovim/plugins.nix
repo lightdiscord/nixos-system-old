@@ -61,5 +61,19 @@ in {
       rev = "b82abd5bd583cfb90be63ae12adc36a84577bd45";
       sha256 = "0y3fkw7f5gqb339qlby19f444085c929gjbmbibmgig7hrarqrz4";
     };
+
+    nerdtree = build {
+      name = "nerdtree";
+      owner = "scrooloose";
+      rev = "a172d7cfcb4fe9b927dcc24184204fc89d826301";
+      sha256 = "1nfk1j2n2jgrdhcahva1kq3qjj4fdn1x20xxvgl88v3j3fj62n0f";
+    };
+
+    easymotion = build {
+      name = "vim-easymotion";
+      owner = "easymotion";
+      rev = "342549e7a1e5b07a030803e0e4b6f0415aa51275";
+      sha256 = "1glv4s95v8xxj47n0jzjxd0pxphnnpgzyd384d2bh0ql1xgf320v";
+    };
   };
 }

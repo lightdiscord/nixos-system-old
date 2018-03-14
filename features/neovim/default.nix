@@ -5,12 +5,10 @@ let
 in {
   packages.myVimPackage = with pkgs.vimPlugins // plugins; {
     start = [
-      #nerdtree
       #vim-nerdtree-tabs
       #vim-nerdtree-git-plugin
       #vim-devicons
       #vim-nerdtree-syntax-highlight
-      #vim-easymotion
       #vim-mru
       #editorconfig
       #emmet
@@ -18,6 +16,8 @@ in {
       #vim-ale
 
       tools.fugitive
+      tools.nerdtree
+      tools.easymotion
 
       fun.discord
 
@@ -37,5 +37,8 @@ in {
 
     set background=dark
     colorscheme lucid
+
+    nmap <silent> <F3> :NERDTreeToggle<CR>
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDtree.isTabTree()) | q | endif
   '';
 }
