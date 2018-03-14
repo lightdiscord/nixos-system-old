@@ -20,6 +20,13 @@ in {
       rev = "a2bc8f68f7c408bb8525e5f0e2405931e5bf240c";
       sha256 = "08nhh8s02h5jv686n4vr7cgb28czpmiczsp8basn1457nvkwbins";
     };
+
+    airline = build {
+      name = "vim-airline-themes";
+      owner = "vim-airline";
+      rev = "4b7f77e770a2165726072a2b6f109f2457783080";
+      sha256 = "02wbch9mbj0slafd5jrklmyawrxpisf8c3f5c72gq30j8hlyb86n";
+    };
   };
 
   langs = {
@@ -95,6 +102,20 @@ in {
       owner = "editorconfig";
       rev = "0abb0634a8bf3c760a283e9e7475594b83869a46";
       sha256 = "1wazl37ivn9nhsy296g1ncvvwc78930lbp8arhwavr52mzpfji21";
+    };
+
+    airline = build {
+      name = "vim-airline";
+      owner = "vim-airline";
+      rev = "958f78335eafe419ee002ad58d358854323de33a";
+      sha256 = "1h0a0rsnbbwhw55r2hcpfkxqamnx62jzqb451lh3ipvfs0ral6w7";
+    };
+
+    ctrlp = build {
+      name = "ctrlp.vim";
+      owner = "kien";
+      rev = "564176f01d7f3f7f8ab452ff4e1f5314de7b0981";
+      sha256 = "1nzzii9g4ckf561csrg7nclnsb6gr5lgghmlhdsxabkcp2lkhnmr";
     };
   };
 }

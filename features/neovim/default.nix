@@ -18,10 +18,13 @@ in {
       tools.emmet
       tools.ale
       tools.editorconfig
+      tools.airline
+      tools.ctrlp
 
       fun.discord
 
       themes.colors-lucid
+      themes.airline
 
       langs.nix
       langs.rust
@@ -40,5 +43,9 @@ in {
 
     nmap <silent> <F3> :NERDTreeToggle<CR>
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#formatter = 'unique_tail'
+    let g:airline_theme='minimalist'
   '';
 }
