@@ -2,8 +2,6 @@
 
 {
   imports = [
-    ../hardware-configuration.nix
-  
     ../options/protonvpn/protonvpn-nm.nix
 
     ./users.nix

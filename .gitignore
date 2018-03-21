@@ -1,2 +1,5 @@
 accounts.nix
 protonvpn.txt
+
+hardware-configuration.nix
+configuration.nix

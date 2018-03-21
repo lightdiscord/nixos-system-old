@@ -4,6 +4,8 @@
   imports = [
     <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
 
+    ../hardware-configuration.nix
+
     ../cfg/base.nix
     ../cfg/desktop-i3wm.nix
 
