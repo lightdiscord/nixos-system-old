@@ -17,6 +17,13 @@
       fsType = "ext4";
     };
 
+  fileSystems."/datas" =
+    { device = "/dev/disk/by-uuid/07a9c7c5-2511-4974-a9b0-d3591e7cdb4f";
+      fsType = "ext4";
+      label = "Datas";
+      options = [ "nofail" ];
+    };
+
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/B994-2B7A";
       fsType = "vfat";
@@ -26,5 +33,6 @@
     [ { device = "/dev/disk/by-uuid/9d7b47e5-380b-493f-aee2-18e2cfa8a25a"; }
     ];
 
-  nix.maxJobs = lib.mkDefault 4;
+  nix.maxJobs = lib.mkDefault 8;
+  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 }

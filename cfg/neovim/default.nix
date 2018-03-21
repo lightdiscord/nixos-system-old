@@ -29,6 +29,7 @@ in {
       langs.nix
       langs.rust
       langs.toml
+      langs.lisp
     ];
     opt = [];
   };

@@ -50,6 +50,20 @@ in {
       rev = "624f02475080ea26d9430b8d31d7c3199b0ec939";
       sha256 = "0frjdv50rhd3awrddq25x4l22ca15i5587pgcmvwxz92y52484lx";
     };
+
+    lisp = build {
+      name = "vlime";
+      owner = "l04m33";
+      rev = "065b95f3ac7a455314c2bdefeb2b792f290034df";
+      sha256 = "1bmmskdwvbl6lvbnjp9lls86rz0vzmk73y644bjb9ix9ygmjbia4";
+    };
+
+    fish = build {
+      name = "vim-fish";
+      owner = "dag";
+      rev = "50b95cbbcd09c046121367d49039710e9dc9c15f";
+      sha256 = "1yvjlm90alc4zsdsppkmsja33wsgm2q6kkn9dxn6xqwnq4jw5s7h";
+    };
   };
 
   fun = {

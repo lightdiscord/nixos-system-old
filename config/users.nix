@@ -1,13 +1,13 @@
 { config, pkgs, ... }:
 
 let
-  polybar = pkgs.polybar.override { i3GapsSupport = true; githubSupport = true; mpdSupport = true; };
+  #polybar = pkgs.polybar.override { i3GapsSupport = true; githubSupport = true; mpdSupport = true; };
   neovim = pkgs.neovim.override { configure = (import ../features/neovim { inherit pkgs; }); };
-  python3 = pkgs.python36.withPackages (ps: [ ps.numpy ps.editorconfig ]);
-  python2 = pkgs.python27.withPackages (ps: [ ps.numpy ps.editorconfig ]);
+  #python3 = pkgs.python36.withPackages (ps: [ ps.numpy ps.editorconfig ]);
+  #python2 = pkgs.python27.withPackages (ps: [ ps.numpy ps.editorconfig ]);
 in {
   imports = [
-    "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/nixos-module.tar.gz}/nixos"
+    "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/nixos-module-user-pkgs.tar.gz}/nixos"
   ];
 
   users.extraUsers = {
@@ -39,20 +39,21 @@ in {
         unrar
         editorconfig-core-c
         tree
-        emacs
+        #emacs
+        irssi
       ] ++ pkgs.lib.optionals config.services.xserver.enable [
         discord
-        tdesktop
-        polybar
+        #tdesktop
+        #polybar
         rofi
         i3lock
         vlc
         alacritty
         #gitkraken
         pavucontrol
-        compton
-        lxappearance
-        psmisc
+        #compton
+        #lxappearance
+        #psmisc
         ffmpeg
         #gst-ffmpeg
         #hal-flash
@@ -93,35 +94,10 @@ in {
       '';
     };
 
-    #programs.home-manager = {
-    #  enable = true;
-    #  path = "https://github.com/rycee/home-manager/archive/master.tar.gz";
-    #};
-
     services.gpg-agent = {
       enable = true;
       defaultCacheTtl = 3600;
       enableSshSupport = true;
-    };
-
-    systemd.user.services.emacsd = {
-      Unit = {
-        Description = "Emacs: the extensible, self-documenting text editor";
-      };
-
-      Service = {
-        Type = "forking";
-        ExecStart = "${pkgs.emacs}/bin/emacs --daemon";
-        ExecReload = "${pkgs.emacs}/bin/emacsclient --eval \"(kill-emacs)\"";
-        Environment = ''
-          PATH=${pkgs.xclip}/bin:${pkgs.coreutils}/bin
-        '';
-        Restart = "always";
-      };
-
-      Install = {
-        WantedBy = ["default.target"];
-      };
     };
 
     gtk = {
@@ -141,8 +117,6 @@ in {
     enable = true;
     shellAliases = {
       vim = "nvim";
-      ec = "emacsclient -t";
-      ecw = "emacsclient -c -a emacs";
     };
   };
 }
