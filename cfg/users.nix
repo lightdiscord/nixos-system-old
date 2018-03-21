@@ -20,6 +20,11 @@ in {
     isNormalUser = true;
     createHome = false;
     shell = pkgs.fish;
+
+    openssh.authorizedKeys.keys = with import ../misc/keys.nix; [
+      ssh.arnaud
+    ];
+
     packages = with pkgs; ([
       # Terminal
       neovim
